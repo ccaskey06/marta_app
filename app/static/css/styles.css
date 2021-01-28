@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400);
+
+:root {
+  --light-purple: #780dc9;
+  --dark-purple: #420866;
+  --box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  --input-background: #f2f2f2;
+}
+
+html, body, section {
+  height: 100%;
+}
+
+body {
+  background: var(--purple);
+  background: -webkit-linear-gradient(right, var(--light-purple), var(--dark-purple));
+  background: -moz-linear-gradient(right, var(--light-purple), var(--dark-purple));
+  background: -o-linear-gradient(right, var(--light-purple), var(--dark-purple));
+  background: linear-gradient(to right,var(--light-purple), var(--dark-purple));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Roboto", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
