@@ -64,6 +64,3 @@ $1.50	10/10/2017 12:00:00 AM	7534 7855 6258 8930	BUSS2	BUSDOME"""
     db.close()
 
 import_excel()
-
-
-

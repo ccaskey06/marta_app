@@ -1,11 +1,8 @@
-# from flask import Flask
-# app = Flask(__name__)
-# app.secret_key = 'coreyiscute'
-# from app import views
-
 import os
 
 from flask import Flask
+from .routes import auth
+from .shared import hasher
 
 #
 def create_app():
@@ -20,8 +17,12 @@ def create_app():
   except OSError:
     pass
 
+  with app.app_context():
+    hasher.init_hash_controller(app)
+
   # register templates / blueprints here ...
-  #
+  app.register_blueprint(auth.auth_bp)
+
   #
 
   return app

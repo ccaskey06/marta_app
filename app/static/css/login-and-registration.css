@@ -1,0 +1,143 @@
+
+.login-and-registration-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+div.container-fluid {
+  display: flex;
+  flex-basis: 100%;
+  padding: 0;
+}
+
+div.row {
+  /* flex is inherited */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  margin: 0;
+}
+
+div.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  flex-basis: 100%;
+  height: 100%;
+}
+
+.login-and-registration-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 18.75rem;
+  padding: 1.5rem; 
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+
+.login-and-registration-card-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-container {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.logo-container img {
+  width: 100%;
+}
+
+.login-and-registration-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+form.form-group {
+  width: 100%;
+  margin: 0;
+}
+
+.login-and-registration-input {
+  width: 100%;
+  margin: 0 0 0.875rem;
+  padding: 0.875rem;
+  font-size: 0.875rem;
+  outline: 0;
+  border: 0;
+  background: var(--input-background);
+  box-sizing: border-box;
+}
+
+.login-and-registration-button {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 0.875rem;
+  outline: 0;
+  border: 0;
+  background: var(--light-purple);
+  color: white;
+  text-transform: uppercase;
+  transition: background .3s ease;
+  -webkit-transition: background .3s ease;
+  -moz-transition: background .3s ease;
+}
+
+.login-and-registration-button:hover, .login-and-registration-button:active, .login-and-registration-button:focus {
+  background: var(--dark-purple);
+}
+
+.redirect-container {
+  font-size: 0.75rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redirect-container .redirect-message {
+  margin: 0 0 0.25rem;
+  color: #b3b3b3;
+}
+
+.redirect-container a {
+  color: var(--light-purple);
+  text-decoration: none;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transition: color .3s ease, border-bottom .3s ease;
+  -webkit-transition: color .3s ease, border-bottom .3s ease;
+  -moz-transition: color .3s ease, border-bottom .3s ease;
+}
+
+.redirect-container a:hover, .redirect-container a:active, .redirect-container a:focus {
+  color: var(--dark-purple);
+  border-bottom: 1px solid var(--dark-purple);
+}
+
+@media (min-width: 576px) {
+  .login-and-registration-card {
+    width: 25rem;
+    padding: 2rem;
+  }
+
+  .logo-container {
+    margin-bottom: 2rem;
+  }
+
+  .login-and-registration-form-container {
+    margin-bottom: 2rem;
+  }
+}

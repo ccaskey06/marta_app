@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/login-and-registration.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login-and-registration.css') }}">
+{% endblock %}
+
+{% block content %}
+  <section class="login-and-registration-screen">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="login-and-registration-card">
+            <div class="login-and-registration-card-content-container">
+              <span class="logo-container">
+                <img alt="Marta Logo" src="{{ url_for('static', filename='img/marta_logo.png') }}"/>
+              </span>
+              {% if error %}
+                <p class=error><strong>Error:</strong> {{ error }}</p>
+              {% endif %}
+              <div class="login-and-registration-form-container">
+                <form class="form-group" method="post">
+                    {% if is_registration %}
+                      <input
+                        required
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        class="login-and-registration-input validate"
+                        aria-required="true"
+                        value="{{ username }}"
+                      />
+                      <input
+                        required
+                        type="email"
+                        placeholder="E-mail"
+                        name="email"
+                        class="login-and-registration-input validate"
+                        aria-required="true"
+                        value="{{ email }}"
+                      />
+                      <input
+                        required
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        class="login-and-registration-input validate"
+                        minlength="8"
+                        aria-required="true"
+                        value="{{ password }}"
+                      />
+                      <input
+                        required
+                        type="password"
+                        placeholder="Confirm Password"
+                        name="confirm_password"
+                        class="login-and-registration-input validate"
+                        minlength="8"
+                        aria-required="true"
+                        value="{{ confirm_password }}"
+                      />
+                      <button class="login-and-registration-button" value="submit" type="submit">register</button>
+                    {% else %}
+                      <input
+                        required
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        class="login-and-registration-input validate"
+                        aria-required="true"
+                        value="{{ userVal }}"
+                      />
+                      <input
+                        required
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        class="login-and-registration-input validate"
+                        aria-required="true"
+                        value="{{ passVal }}"
+                      />
+                      <button class="login-and-registration-button" value="submit" type="submit">sign in</button>
+                    {% endif %}
+                </form>
+              </div>
+              <div class="redirect-container">
+                {% if is_registration %}
+                  <p class="redirect-message">Already registered?</p>
+                  <a href="/login">Sign In</a>
+                {% else %}
+                  <p class="redirect-message">Not registered?</p>
+                  <a href="/register">Create New Account</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

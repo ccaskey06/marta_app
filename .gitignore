@@ -1,4 +1,7 @@
+build.py
+
 __pycache__/
+.vscode/
 
 venv/
 instance/
