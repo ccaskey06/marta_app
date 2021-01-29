@@ -2,9 +2,12 @@
 
 :root {
   --light-purple: #780dc9;
+  --light-purple-dim: rgba(120, 13, 201, 0.5);
   --dark-purple: #420866;
   --box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   --input-background: #f2f2f2;
+  --correct-icon-color: green;
+  --incorrect-icon-color: red;
 }
 
 html, body, section {

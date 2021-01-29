@@ -16,74 +16,67 @@
           <div class="login-and-registration-card">
             <div class="login-and-registration-card-content-container">
               <span class="logo-container">
-                <img alt="Marta Logo" src="{{ url_for('static', filename='img/marta_logo.png') }}"/>
+                <img alt="FTA Logo" src="{{ url_for('static', filename='img/marta-logo.png') }}"/>
               </span>
-              {% if error %}
-                <p class=error><strong>Error:</strong> {{ error }}</p>
-              {% endif %}
               <div class="login-and-registration-form-container">
                 <form class="form-group" method="post">
-                    {% if is_registration %}
-                      <input
-                        required
-                        type="text"
-                        placeholder="Username"
-                        name="username"
-                        class="login-and-registration-input validate"
-                        aria-required="true"
-                        value="{{ username }}"
-                      />
-                      <input
-                        required
-                        type="email"
-                        placeholder="E-mail"
-                        name="email"
-                        class="login-and-registration-input validate"
-                        aria-required="true"
-                        value="{{ email }}"
-                      />
-                      <input
-                        required
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                        class="login-and-registration-input validate"
-                        minlength="8"
-                        aria-required="true"
-                        value="{{ password }}"
-                      />
-                      <input
-                        required
-                        type="password"
-                        placeholder="Confirm Password"
-                        name="confirm_password"
-                        class="login-and-registration-input validate"
-                        minlength="8"
-                        aria-required="true"
-                        value="{{ confirm_password }}"
-                      />
-                      <button class="login-and-registration-button" value="submit" type="submit">register</button>
-                    {% else %}
-                      <input
-                        required
-                        type="text"
-                        placeholder="Username"
-                        name="username"
-                        class="login-and-registration-input validate"
-                        aria-required="true"
-                        value="{{ userVal }}"
-                      />
-                      <input
-                        required
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                        class="login-and-registration-input validate"
-                        aria-required="true"
-                        value="{{ passVal }}"
-                      />
-                      <button class="login-and-registration-button" value="submit" type="submit">sign in</button>
-                    {% endif %}
+                  {% if is_registration %}
+                    <!-- Username Input -->
+                    <fieldset class="form-field">
+                      {{ form.username(class="login-and-registration-input validate", placeholder="Username", title="Enter Username") }}
+                      {% if form.username.errors %}
+                        <ul class="errors">
+                          {% for error in form.username.errors %}
+                            <i class="fas fa-exclamation"></i> <span class="error-message">{{ error }}</span>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </fieldset>
+                    
+                    <!-- Email Input -->
+                    <fieldset class="form-field">
+                      {{ form.email(class="login-and-registration-input validate", placeholder="Email", type="email", title="Enter Email") }}
+                      {% if form.email.errors %}
+                        <ul class="errors">
+                          {% for error in form.email.errors %}
+                            <i class="fas fa-exclamation"></i> <span class="error-message">{{ error }}</span>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </fieldset>
+
+                    <!-- Password Input -->
+                    <fieldset class="form-field">
+                      {{ form.password(class="login-and-registration-input validate", placeholder="Password", minlength="8", title="Enter Password") }}
+                      {% if form.password.errors %}
+                        <ul class="errors">
+                          {% for error in form.password.errors %}
+                            <i class="fas fa-exclamation"></i> <span class="error-message">{{ error }}</span>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </fieldset>
+                    
+                    <!-- Confirm Password Input -->
+                    <fieldset class="form-field">
+                      {{ form.confirm_password(class="login-and-registration-input validate", placeholder="Confirm Password", title="Confirm Password") }}
+                      <i class="fas fa-check icon-hidden"></i>
+                      <i class="fas fa-times icon-hidden"></i>
+                      <!-- <span class="icon-container icon-hidden"><i class="fas fa-check"></i></span>
+                      <span class="icon-container icon-hidden"><i class="fas fa-times"></i></span> -->
+                      {% if form.confirm_password.errors %}
+                        <ul class="errors">
+                          {% for error in form.confirm_password.errors %}
+                            <i class="fas fa-exclamation"></i> <span class="error-message">{{ error }}</span>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </fieldset>
+                    
+                    {{ form.submit(class="login-and-registration-button") }}
+                  {% else %}
+
+                  {% endif %}
                 </form>
               </div>
               <div class="redirect-container">
